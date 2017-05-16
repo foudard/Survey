@@ -15,6 +15,6 @@ public class MainController {
 
     @GetMapping(path="/index") // Map ONLY GET Requests
     public @ResponseBody String index () {
-        return "index";
+        return "../../views/index";
     }
 }
