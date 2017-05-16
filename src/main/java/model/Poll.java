@@ -1,13 +1,10 @@
 package model;
 
-import org.springframework.stereotype.Controller;
-
 import java.util.Date;
 
 /**
  * Created by Val on 16/05/2017.
  */
-@Controller
 public class Poll {
     private int id;
     private String name;
