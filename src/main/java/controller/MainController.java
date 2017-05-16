@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-@RestController    // This means that this class is a rest controller
+@RestController // This means that this class is a rest controller
 @RequestMapping(path="/") // This means URL's start with / (after Application path)
 public class MainController {
 
