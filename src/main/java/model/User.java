@@ -9,7 +9,7 @@ import dao.UserDao;
 import javax.persistence.*;
 
 @Entity(name = "user")
-public class User implements UserDao {
+public class User {
 
     private int id;
     private String login;
