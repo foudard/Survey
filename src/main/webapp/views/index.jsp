@@ -18,13 +18,13 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="index.jsp">Survey</a>
+                    <a class="navbar-brand" href="/">Survey</a>
                 </div>
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="login.jsp">Connexion</a></li>
+                        <li><a href="/login">Connexion</a></li>
                     </ul>
                 </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->
@@ -34,17 +34,17 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-6 col-md-offset-3">
-                <form>
+                <form action="/polls" method="POST">
                     <div class="form-group">
                         <label for="pseudo">Pseudo</label>
-                        <input class="form-control" id="pseudo" type="text" placeholder="Pseudo" required/>
+                        <input class="form-control" id="pseudo" name="pseudo" type="text" placeholder="Pseudo" required/>
                     </div>
                     <div class="form-group">
                         <label for="age">Âge</label>
-                        <input class="form-control" id="age" type="number" placeholder="Âge" required/>
+                        <input class="form-control" id="age" name="age" type="number" placeholder="Âge" required/>
                     </div>
                     <div class="form-group">
-                        <button class="btn btn-primary getIn">Participer</button>
+                        <input type="submit" class="btn btn-primary getIn" value="Participer"/>
                     </div>
                 </form>
             </div>
