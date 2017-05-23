@@ -4,36 +4,31 @@ package model;
  * Created by Val on 16/05/2017.
  */
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
-@Entity
+@Entity(name = "age_group")
 public class AgeGroup {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+
     private int id;
     private String name;
 
+    @Id
+    @Column(name = "id")
     public int getId() {
         return id;
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    @Basic
+    @Column(name = "name")
     public String getName() {
         return name;
     }
 
     public void setName(String name) {
-        this.name = name;
-    }
-
-    public AgeGroup(int id, String name) {
-        this.id = id;
-        this.name = name;
-    }
-
-    public AgeGroup(String name) {
         this.name = name;
     }
 }

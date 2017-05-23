@@ -4,24 +4,28 @@ package model;
  * Created by Val on 16/05/2017.
  */
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
-@Entity
+@Entity(name = "user")
 public class User {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+
     private int id;
     private String login;
     private String password;
-    private Role role;
+    private int roleId;
 
+    @Id
+    @Column(name = "id")
     public int getId() {
         return id;
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    @Basic
+    @Column(name = "login")
     public String getLogin() {
         return login;
     }
@@ -30,6 +34,8 @@ public class User {
         this.login = login;
     }
 
+    @Basic
+    @Column(name = "password")
     public String getPassword() {
         return password;
     }
@@ -38,24 +44,13 @@ public class User {
         this.password = password;
     }
 
-    public Role getRole() {
-        return role;
+    @Basic
+    @Column(name = "role_id")
+    public int getRoleId() {
+        return roleId;
     }
 
-    public void setRole(Role role) {
-        this.role = role;
-    }
-
-    public User(int id, String login, String password, Role role) {
-        this.id = id;
-        this.login = login;
-        this.password = password;
-        this.role = role;
-    }
-
-    public User(String login, String password, Role role) {
-        this.login = login;
-        this.password = password;
-        this.role = role;
+    public void setRoleId(int roleId) {
+        this.roleId = roleId;
     }
 }

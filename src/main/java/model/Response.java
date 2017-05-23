@@ -4,23 +4,27 @@ package model;
  * Created by Val on 16/05/2017.
  */
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
-@Entity
+@Entity(name = "response")
 public class Response {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+
     private int id;
     private String value;
-    private Poll poll;
+    private int pollId;
 
+    @Id
+    @Column(name = "id")
     public int getId() {
         return id;
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    @Basic
+    @Column(name = "value")
     public String getValue() {
         return value;
     }
@@ -29,22 +33,13 @@ public class Response {
         this.value = value;
     }
 
-    public Poll getPoll() {
-        return poll;
+    @Basic
+    @Column(name = "poll_id")
+    public int getPollId() {
+        return pollId;
     }
 
-    public void setPoll(Poll poll) {
-        this.poll = poll;
-    }
-
-    public Response(int id, String value, Poll poll) {
-        this.id = id;
-        this.value = value;
-        this.poll = poll;
-    }
-
-    public Response(String value, Poll poll) {
-        this.value = value;
-        this.poll = poll;
+    public void setPollId(int pollId) {
+        this.pollId = pollId;
     }
 }

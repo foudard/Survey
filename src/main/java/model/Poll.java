@@ -1,31 +1,37 @@
 package model;
 
+import java.sql.Timestamp;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by Val on 16/05/2017.
  */
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
-@Entity
+@Entity(name = "poll")
 public class Poll {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+
     private int id;
     private String name;
     private String description;
-    private Date date_begin;
-    private Date date_end;
-    private User user;
+    private java.sql.Date dateBegin;
+    private java.sql.Date dateEnd;
+    private int userId;
 
+    @Id
+    @Column(name = "id")
     public int getId() {
         return id;
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    @Basic
+    @Column(name = "name")
     public String getName() {
         return name;
     }
@@ -34,6 +40,8 @@ public class Poll {
         this.name = name;
     }
 
+    @Basic
+    @Column(name = "description")
     public String getDescription() {
         return description;
     }
@@ -42,44 +50,33 @@ public class Poll {
         this.description = description;
     }
 
-    public Date getDate_begin() {
-        return date_begin;
+    @Basic
+    @Column(name = "date_begin")
+    public java.sql.Date getDateBegin() {
+        return dateBegin;
     }
 
-    public void setDate_begin(Date date_begin) {
-        this.date_begin = date_begin;
+    public void setDateBegin(java.sql.Date dateBegin) {
+        this.dateBegin = dateBegin;
     }
 
-    public Date getDate_end() {
-        return date_end;
+    @Basic
+    @Column(name = "date_end")
+    public java.sql.Date getDateEnd() {
+        return dateEnd;
     }
 
-    public void setDate_end(Date date_end) {
-        this.date_end = date_end;
+    public void setDateEnd(java.sql.Date dateEnd) {
+        this.dateEnd = dateEnd;
     }
 
-    public User getUser() {
-        return user;
+    @Basic
+    @Column(name = "user_id")
+    public int getUserId() {
+        return userId;
     }
 
-    public void setUser(User user) {
-        this.user = user;
-    }
-
-    public Poll(int id, String name, String description, Date date_begin, Date date_end, User user) {
-        this.id = id;
-        this.name = name;
-        this.description = description;
-        this.date_begin = date_begin;
-        this.date_end = date_end;
-        this.user = user;
-    }
-
-    public Poll(String name, String description, Date date_begin, Date date_end, User user) {
-        this.name = name;
-        this.description = description;
-        this.date_begin = date_begin;
-        this.date_end = date_end;
-        this.user = user;
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 }
