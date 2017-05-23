@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Survey</title>
-    <link rel="stylesheet" href="../../assets/css/bootstrap.min.css" type="text/css">
-    <link rel="stylesheet" href="../../assets/css/app.css" type="text/css">
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="../assets/css/app.css" type="text/css">
 </head>
 <body>
 <header>
@@ -18,14 +18,14 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.jsp">Survey</a>
+                <a class="navbar-brand" href="/">Survey</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="polls.jsp">Liste des sondages</a></li>
-                    <li><a href="login.jsp">Connexion</a></li>
+                    <li><a href="/polls">Liste des sondages</a></li>
+                    <li><a href="/login">Connexion</a></li>
                 </ul>
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
@@ -34,48 +34,50 @@
 
 <div class="container-fluid">
     <div class="row">
-        <div class="col-md-6 col-md-offset-3">
-            <div class="panel panel-default">
-                <div class="panel-body">
-                    <span>
-                        Quel est votre genre cinématographique préféré ?
-                    </span>
-                    <span>
-                        <strong>1154 votes</strong>
-                    </span>
-                    <a class="pull-right" href="poll.jsp"><button class="btn btn-primary">Participer</button></a>
+        <form action="/poll" method="POST">
+            <div class="col-md-6 col-md-offset-3">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <span>
+                            Quel est votre genre cinématographique préféré ?
+                        </span>
+                        <span>
+                            <strong>1154 votes</strong>
+                        </span>
+                        <input type="submit" class="btn btn-primary pull-right" value="Participer" />
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="col-md-6 col-md-offset-3">
-            <div class="panel panel-default">
-                <div class="panel-body">
-                    <span>
-                        Sport ou Jeux vidéos ?
-                    </span>
-                    <span>
-                        <strong>753 votes</strong>
-                    </span>
-                    <a class="pull-right" href="poll.jsp"><button class="btn btn-primary">Participer</button></a>
+            <div class="col-md-6 col-md-offset-3">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <span>
+                            Sport ou Jeux vidéos ?
+                        </span>
+                        <span>
+                            <strong>753 votes</strong>
+                        </span>
+                        <input type="submit" class="btn btn-primary pull-right" value="Participer" />
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="col-md-6 col-md-offset-3">
-            <div class="panel panel-default">
-                <div class="panel-body">
-                    <span>
-                        Fait-il beau aujourd'hui ?
-                    </span>
-                    <span>
-                        <strong>26 votes</strong>
-                    </span>
-                    <a class="pull-right" href="poll.jsp"><button class="btn btn-primary">Participer</button></a>
+            <div class="col-md-6 col-md-offset-3">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <span>
+                            Fait-il beau aujourd'hui ?
+                        </span>
+                        <span>
+                            <strong>26 votes</strong>
+                        </span>
+                        <input type="submit" class="btn btn-primary pull-right" value="Participer" />
+                    </div>
                 </div>
             </div>
-        </div>
+        </form>
     </div>
 </div>
 </body>
-<script src="../../assets/js/jquery-3.2.1.min.js" type="text/javascript"></script>
-<script src="../../assets/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="../assets/js/jquery-3.2.1.min.js" type="text/javascript"></script>
+<script src="../assets/js/bootstrap.min.js" type="text/javascript"></script>
 </html>

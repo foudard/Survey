@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Survey</title>
-    <link rel="stylesheet" href="../../assets/css/bootstrap.min.css" type="text/css">
-    <link rel="stylesheet" href="../../assets/css/app.css" type="text/css">
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="../assets/css/app.css" type="text/css">
 </head>
 <body>
 <header>
@@ -18,14 +18,14 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.jsp">Survey</a>
+                <a class="navbar-brand" href="/">Survey</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="polls.jsp">Liste des sondages</a></li>
-                    <li><a href="login.jsp">Connexion</a></li>
+                    <li><a href="/polls">Liste des sondages</a></li>
+                    <li><a href="/login">Connexion</a></li>
                 </ul>
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
@@ -110,8 +110,8 @@
     </div>
 </div>
 </body>
-<script src="../../assets/js/jquery-3.2.1.min.js" type="text/javascript"></script>
-<script src="../../assets/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="../assets/js/jquery-3.2.1.min.js" type="text/javascript"></script>
+<script src="../assets/js/bootstrap.min.js" type="text/javascript"></script>
 <script type="text/javascript">
     $("button").click(function(event) {
         $("button").hide();
