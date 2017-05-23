@@ -4,14 +4,34 @@ package controller;
  * Created by flori_000 on 16/05/2017.
  */
 
+import dao.UserDao;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import javax.servlet.http.HttpServletRequest;
+
+import static org.springframework.web.bind.annotation.RequestMethod.GET;
+import static org.springframework.web.bind.annotation.RequestMethod.POST;
 
 @Controller
 public class MainController {
 
-    @RequestMapping("/")
+    @RequestMapping(value="/", method=GET)
     public String index () {
         return "index";
+    }
+
+    @RequestMapping(value="/login", method=GET)
+    public String login () {
+        return "login";
+    }
+
+    @RequestMapping(value="/login", method=POST)
+    public String connect (HttpServletRequest request) {
+        System.out.println(request.getParameter("login"));
+        System.out.println(request.getParameter("password"));
+        UserDao userdao = new UserDao();
+        return "redirect:/";
     }
 }

@@ -41,17 +41,17 @@
         </div>
         <div class="row">
             <div class="col-md-6 col-md-offset-3">
-                <form>
+                <form method="POST" action="/login">
                     <div class="form-group">
                         <label for="login">Login</label>
-                        <input class="form-control" id="login" type="text" placeholder="Login" require/>
+                        <input class="form-control" id="login" name="login" type="text" placeholder="Login" require/>
                     </div>
                     <div class="form-group">
                         <label for="password">Mot de passe</label>
-                        <input class="form-control" id="password" type="password" placeholder="Mot de passe" required/>
+                        <input class="form-control" id="password" name="password" type="password" placeholder="Mot de passe" required/>
                     </div>
                     <div class="form-group">
-                        <button class="btn btn-primary getIn">Se connecter</button>
+                        <input type="submit" class="btn btn-primary getIn" value="Se connecter"/>
                     </div>
                 </form>
             </div>

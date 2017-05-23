@@ -4,10 +4,12 @@ package model;
  * Created by Val on 16/05/2017.
  */
 
+import dao.UserDao;
+
 import javax.persistence.*;
 
 @Entity(name = "user")
-public class User {
+public class User implements UserDao {
 
     private int id;
     private String login;
