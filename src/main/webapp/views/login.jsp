@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Survey</title>
-    <link rel="stylesheet" href="../assets/css/bootstrap.min.css" type="text/css">
-    <link rel="stylesheet" href="../assets/css/app.css" type="text/css">
+    <link rel="stylesheet" href="../../assets/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="../../assets/css/app.css" type="text/css">
 </head>
 <body>
     <header>
@@ -58,6 +58,6 @@
         </div>
     </div>
 </body>
-<script src="../assets/js/jquery-3.2.1.min.js" type="text/javascript"></script>
-<script src="../assets/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="../../assets/js/jquery-3.2.1.min.js" type="text/javascript"></script>
+<script src="../../assets/js/bootstrap.min.js" type="text/javascript"></script>
 </html>
