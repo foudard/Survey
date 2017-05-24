@@ -1,9 +1,5 @@
 package model;
 
-import java.sql.Timestamp;
-import java.util.Date;
-import java.util.List;
-
 /**
  * Created by Val on 16/05/2017.
  */
