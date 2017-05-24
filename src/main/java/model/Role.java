@@ -4,10 +4,12 @@ package model;
  * Created by Val on 16/05/2017.
  */
 
+import org.springframework.security.core.GrantedAuthority;
+
 import javax.persistence.*;
 
 @Entity(name = "role")
-public class Role {
+public class Role implements GrantedAuthority {
 
     private int id;
     private String name;
@@ -30,5 +32,10 @@ public class Role {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    @Override
+    public String getAuthority() {
+        return this.name;
     }
 }
