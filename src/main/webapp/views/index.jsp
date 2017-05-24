@@ -1,3 +1,4 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@include file="header.jsp" %>
     <div class="container-fluid">
         <div class="row">
@@ -8,8 +9,8 @@
                         <input class="form-control" id="pseudo" name="pseudo" type="text" placeholder="Pseudo" required/>
                     </div>
                     <div class="form-group">
-                        <label for="age">Âge</label>
-                        <input class="form-control" id="age" name="age" type="number" placeholder="Âge" required/>
+                        <label for="age">Age</label>
+                        <input class="form-control" id="age" name="age" type="number" placeholder="Age" required/>
                     </div>
                     <div class="form-group">
                         <input type="submit" class="btn btn-primary getIn" value="Participer"/>
