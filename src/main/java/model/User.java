@@ -18,7 +18,7 @@ public class User implements UserDetails {
     private String password;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumns({@JoinColumn(name = "role_id",referencedColumnName = "id")})
+    @JoinColumns({ @JoinColumn(name = "role_id", referencedColumnName = "id") })
     private Role role;
 
     public Integer getId() {
