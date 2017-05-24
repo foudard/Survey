@@ -1,6 +1,7 @@
 package dao;
 
 import model.User;
+import org.springframework.context.annotation.Bean;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
@@ -9,5 +10,5 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface UserDao extends CrudRepository<User, Integer> {
-
+    User findByLogin(String login);
 }
