@@ -6,6 +6,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 @Entity(name = "user")
 public class User implements UserDetails {
@@ -50,7 +51,9 @@ public class User implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return new ArrayList<Role>().add(this.role);
+        List<Role> roles = new ArrayList<Role>();
+        roles.add(this.role);
+        return roles;
     }
 
     public String getPassword() {
