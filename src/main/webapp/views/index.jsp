@@ -25,6 +25,13 @@
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user-circle"></i> ${userLogged.getLogin()} <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
+                                    <c:if test="${userLogged.getRole().getName() == 'admin'}">
+                                        <li><a href="/user/add">Ajouter un rédacteur</a></li>
+                                    </c:if>
+                                    <c:if test="${userLogged.getRole().getName() == 'writer'}">
+                                        <li><a href="/user/add">Créer un nouveau sondage</a></li>
+                                    </c:if>
+                                    <li role="separator" class="divider"></li>
                                     <li><a href="/logout">Deconnexion</a></li>
                                 </ul>
                             </li>
