@@ -4,13 +4,9 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
-import javax.print.DocFlavor;
+import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
 
-/**
- * Created by Nico on 11/02/2016.
- */
 @Entity(name = "user")
 public class User implements UserDetails {
 
@@ -20,19 +16,18 @@ public class User implements UserDetails {
     private String login;
     private String password;
 
-//    @ManyToOne(fetch = FetchType.EAGER)
-//    @JoinTable(name = "role", joinColumns = {
-//            @JoinColumn(name = "id", nullable = false, updatable = false) },
-//            inverseJoinColumns = { @JoinColumn(name = "roleId",
-//                    nullable = false, updatable = false) })
-    private Integer roleId;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinTable(name = "role", joinColumns = {
+            @JoinColumn(name = "id", nullable = false, updatable = false) },
+            inverseJoinColumns = { @JoinColumn(name = "role_id", nullable = false, updatable = false) })
+    private Role role;
 
     public Integer getId() {
         return id;
     }
 
-    public void setId(Integer userId) {
-        this.id = userId;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getLogin() {
@@ -43,9 +38,19 @@ public class User implements UserDetails {
         this.login = login;
     }
 
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public Role getRole() { return role; }
+
+    public void setRole(Role role) {
+        this.role = role;
+    }
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return null;
+        return new ArrayList<Role>().add(this.role);
     }
 
     public String getPassword() {
@@ -75,17 +80,5 @@ public class User implements UserDetails {
     @Override
     public boolean isEnabled() {
         return true;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public int getRoles() {
-        return roleId;
-    }
-
-    public void setRoles(int roles) {
-        this.roleId = roles;
     }
 }
