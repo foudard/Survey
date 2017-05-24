@@ -18,9 +18,7 @@ public class User implements UserDetails {
     private String password;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinTable(name = "role", joinColumns = {
-            @JoinColumn(name = "id", nullable = false, updatable = false) },
-            inverseJoinColumns = { @JoinColumn(name = "role_id", nullable = false, updatable = false) })
+    @JoinColumns({@JoinColumn(name = "role_id",referencedColumnName = "id")})
     private Role role;
 
     public Integer getId() {

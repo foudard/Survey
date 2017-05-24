@@ -16,20 +16,20 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
 
     public static String USER_NAME = "user";
     public static String USER_NAME_ADMIN = "admin";
-    public static String PASSWORD = new BCryptPasswordEncoder().encode("toto");
+    public static String PASSWORD = new BCryptPasswordEncoder().encode("admin");
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         // Active ou déscative le csrl (si désactivé, plus besoin du champ hidden correspond dans la page de login
-        //http.csrf().disable();
+        http.csrf().disable();
 
         http.authorizeRequests().antMatchers("/","index", "/fail", "fail2").permitAll()
                 //.antMatchers("/private/admin/**").hasRole("ROLE_ADMIN") // Si on souhaites restraindre l'URL pour le role ADMIN
                 .antMatchers("/private/**").fullyAuthenticated()    // l'accès aux URLs private/** sera restrainte à un utilisateur authentifié
                 .and()
-                .formLogin()                        // utilisation du mode FormLogin pour l'authentification
+                .formLogin()                         // utilisation du mode FormLogin pour l'authentification
                 .loginPage( "/login" )              // Définition d'une page custom pour le login (si non présent authomatiquement généré)
-                .loginProcessingUrl( "/login" )  // Url à utiliser pour poster l'authenfication, donc l'action dans la page custom de login
+                .loginProcessingUrl( "/login.do" )  // Url à utiliser pour poster l'authenfication, donc l'action dans la page custom de login
                 .defaultSuccessUrl( "/" )           // Url par défaut à utiliser en cas d'authentification réussie
                 .failureUrl( "/login?err=1" )
                 .usernameParameter( "login" )    // Nom du champs pour le username dans la page de login
