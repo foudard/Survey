@@ -13,6 +13,8 @@ public class Response {
     private String value;
     private int pollId;
 
+    public Response () {}
+
     @Id
     @Column(name = "id")
     public int getId() {

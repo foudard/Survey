@@ -12,7 +12,7 @@
                     </div>
                     <div class="form-group">
                         <label for="age">Age</label>
-                        <input class="form-control" id="age" name="age" type="number" placeholder="Age" required/>
+                        <input class="form-control" id="age" name="age" min="13" type="number" placeholder="Age" required/>
                     </div>
                     <div class="form-group">
                         <input type="submit" class="btn btn-primary getIn" value="Participer"/>

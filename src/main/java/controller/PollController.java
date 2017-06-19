@@ -1,6 +1,9 @@
 package controller;
 
+import dao.PollDao;
 import model.Poll;
+import model.User;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,6 +26,9 @@ public class PollController {
 
     private String pseudo;
     private String age;
+
+    @Autowired
+    PollService pollService;
 
     @RequestMapping(value = "/polls", method = GET)
     public ModelAndView getPolls () {
@@ -52,24 +58,29 @@ public class PollController {
     }
 
     @RequestMapping(value = "/poll/add", method = GET)
-    public String getAddPoll () { return "addPoll"; }
+    public ModelAndView getAddPoll () {
+        ModelAndView view = new ModelAndView("addPoll");
+        view.addObject("userLogged", SecurityContextHolder.getContext().getAuthentication().getPrincipal());
+        return view;
+    }
 
     @RequestMapping(value = "/poll/add", method = POST)
     public String postAddPoll (HttpServletRequest request) {
         Poll survey = new Poll();
-        survey.setUserId(1);
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        survey.setUser(user);
         survey.setName(request.getParameter("name"));
         survey.setDescription(request.getParameter("description"));
-        // survey.setDateBegin(request.getParameter("begin_date");
-        // survey.setDateEnd(request.getParameter("end_date"));
+        survey.setDateBegin(new java.sql.Date(2017, 06, 20));
+        survey.setDateEnd(new java.sql.Date(2017, 07, 20));
 
-        PollService pollService = new PollService();
+        // PollService pollService = new PollService();
         pollService.save(survey);
 
         // Response resp = new Response();
         // resp.setValue();
         // resp.setPollId();
-        return "addPoll";
+        return "redirect:/";
     }
 
 

@@ -14,7 +14,7 @@ public class Poll {
     private String description;
     private java.sql.Date dateBegin;
     private java.sql.Date dateEnd;
-    private int userId;
+    private User user;
 
     public Poll() {}
 
@@ -68,13 +68,11 @@ public class Poll {
         this.dateEnd = dateEnd;
     }
 
-    @Basic
-    @Column(name = "user_id")
-    public int getUserId() {
-        return userId;
-    }
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumns({ @JoinColumn(name = "user_id", referencedColumnName = "id") })
+    public User getUser() { return user; }
 
-    public void setUserId(int userId) {
-        this.userId = userId;
+    public void setUser(User user) {
+        this.user = user;
     }
 }

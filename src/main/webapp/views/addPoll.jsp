@@ -16,11 +16,11 @@
                 </div>
                 <div class="form-group">
                     <label for="begin-date">Date début</label>
-                    <input class="form-control" id="begin-date" name="begin_date" type="date" required />
+                    <input class="form-control" id="begin-date" name="begin_date" type="date" placeholder="12/06/2001" required />
                 </div>
                 <div class="form-group">
                     <label for="end-date">Date de fin</label>
-                    <input class="form-control" id="end-date" name="end_date" type="date" required />
+                    <input class="form-control" id="end-date" name="end_date" type="date" placeholder="25/01/2011" required />
                 </div>
                 <div class="form-group">
                     <label>Nombre de réponse</label><br>

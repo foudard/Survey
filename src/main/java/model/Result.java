@@ -4,6 +4,8 @@ package model;
  * Created by Val on 16/05/2017.
  */
 
+import com.sun.org.apache.regexp.internal.RE;
+
 import javax.persistence.*;
 
 @Entity(name = "result")
@@ -14,6 +16,8 @@ public class Result {
     private int age;
     private int ageGroupId;
     private int responseId;
+
+    public Result () {}
 
     @Id
     @Column(name = "id")
