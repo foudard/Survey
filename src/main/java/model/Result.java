@@ -49,8 +49,8 @@ public class Result {
         this.age = age;
     }
 
-    @Basic
-    @Column(name = "age_group_id")
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumns({ @JoinColumn(name = "age_group_id", referencedColumnName = "id") })
     public AgeGroup getAgeGroup() {
         return ageGroup;
     }
@@ -59,8 +59,8 @@ public class Result {
         this.ageGroup = ageGroup;
     }
 
-    @Basic
-    @Column(name = "response_id")
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumns({ @JoinColumn(name = "response_id", referencedColumnName = "id") })
     public Response getResponse() {
         return this.response;
     }

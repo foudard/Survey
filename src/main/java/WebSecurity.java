@@ -12,7 +12,6 @@ import service.AuthClientService;
 
 @Configuration
 @EnableWebSecurity
-@EnableTransactionManagement
 @EnableGlobalMethodSecurity(securedEnabled = true)
 public class WebSecurity extends WebSecurityConfigurerAdapter {
 
