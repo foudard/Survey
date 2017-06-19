@@ -23,7 +23,7 @@
                                 <strong>(458 votes)</strong>
                             </span>
                             <form action="/poll/${poll.getId()}" method="POST">
-                                <input type="number" value="${response.getId()}" class="hidden"/>
+                                <input type="number" name="resultId" value="${response.getId()}" class="hidden"/>
                                 <input type="submit" class="btn btn-primary pull-right" value="Voter"/>
                             </form>
                         </div>

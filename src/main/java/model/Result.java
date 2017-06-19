@@ -5,6 +5,7 @@ package model;
  */
 
 import com.sun.org.apache.regexp.internal.RE;
+import jdk.nashorn.internal.runtime.RewriteException;
 
 import javax.persistence.*;
 
@@ -20,6 +21,7 @@ public class Result {
     public Result () {}
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     public Integer getId() {
         return id;
