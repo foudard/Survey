@@ -9,5 +9,5 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface RoleDao extends CrudRepository<Role, Integer> {
-
+    Role findByName(String name);
 }

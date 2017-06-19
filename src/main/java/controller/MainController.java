@@ -35,8 +35,9 @@ public class MainController {
     }
 
     @RequestMapping(value="/login", method=GET)
-    public String login () {
-        // return new ModelAndView("login","pass", new BCryptPasswordEncoder().encode("admin"));
-        return "login";
+    public ModelAndView login () {
+        ModelAndView view = new ModelAndView("login");
+        view.addObject("userLogged", SecurityContextHolder.getContext().getAuthentication().getPrincipal());
+        return view;
     }
 }
