@@ -9,5 +9,6 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface PollDao extends CrudRepository<Poll, Integer> {
-
+    Iterable<Poll> findAll();
+    Poll findOne(Integer id);
 }

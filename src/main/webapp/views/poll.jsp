@@ -5,78 +5,31 @@
     <div class="container-fluid">
         <div class="row title">
             <div class="col-md-12">
-                <h1>Quel est votre genre cinématographique préféré ?</h1>
+                <h1>${poll.getName()}</h1>
             </div>
             <div class="col-md-12">
                 <h2>1174 votes</h2>
             </div>
         </div>
         <div class="row">
-            <div class="col-md-6 col-md-offset-3">
-                <div class="panel panel-default">
-                    <div class="panel-body">
-                        <span>
-                            Action / Aventure
-                        </span>
-                        <span>
-                            <strong>(458 votes)</strong>
-                        </span>
-                        <button class="btn btn-primary pull-right">Voter</button>
+            <c:forEach var="response" items="${poll.getResponses()}" >
+                <div class="col-md-6 col-md-offset-3">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <span>
+                                ${response.getValue()}
+                            </span>
+                            <span>
+                                <strong>(458 votes)</strong>
+                            </span>
+                            <form action="/poll/${poll.getId()}" method="POST">
+                                <input type="number" value="${response.getId()}" class="hidden"/>
+                                <input type="submit" class="btn btn-primary pull-right" value="Voter"/>
+                            </form>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-6 col-md-offset-3">
-                <div class="panel panel-default">
-                    <div class="panel-body">
-                        <span>
-                            Science Fiction
-                        </span>
-                        <span>
-                            <strong>(392 votes)</strong>
-                        </span>
-                        <button class="btn btn-primary pull-right">Voter</button>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-md-offset-3">
-                <div class="panel panel-default">
-                    <div class="panel-body">
-                        <span>
-                            Comédie
-                        </span>
-                        <span>
-                            <strong>(317 votes)</strong>
-                        </span>
-                        <button class="btn btn-primary pull-right">Voter</button>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-md-offset-3">
-                <div class="panel panel-default">
-                    <div class="panel-body">
-                        <span>
-                            Policier
-                        </span>
-                        <span>
-                            <strong>(206 votes)</strong>
-                        </span>
-                        <button class="btn btn-primary pull-right">Voter</button>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-md-offset-3">
-                <div class="panel panel-default">
-                    <div class="panel-body">
-                        <span>
-                            Horreur
-                        </span>
-                        <span>
-                            <strong>(153 votes)</strong>
-                        </span>
-                        <button class="btn btn-primary pull-right">Voter</button>
-                    </div>
-                </div>
-            </div>
+            </c:forEach>
         </div>
     </div>
 </body>

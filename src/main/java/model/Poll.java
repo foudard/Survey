@@ -5,6 +5,7 @@ package model;
  */
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity(name = "poll")
 public class Poll {
@@ -15,6 +16,7 @@ public class Poll {
     private java.util.Date dateBegin;
     private java.util.Date dateEnd;
     private User user;
+    private List<Response> responses;
 
     public Poll() {}
 
@@ -75,5 +77,12 @@ public class Poll {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "poll" )
+    public List<Response> getResponses() { return this.responses; }
+
+    public void setResponses(List<Response> responses) {
+        this.responses = responses;
     }
 }

@@ -5,6 +5,7 @@ package model;
  */
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity(name = "response")
 public class Response {
@@ -12,6 +13,7 @@ public class Response {
     private Integer id;
     private String value;
     private Poll poll;
+    private List<Result> results;
 
     public Response () {}
 
@@ -43,5 +45,12 @@ public class Response {
 
     public void setPoll(Poll poll) {
         this.poll = poll;
+    }
+
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "response" )
+    public List<Result> getResults() { return this.results; }
+
+    public void setResults(List<Result> results) {
+        this.results = results;
     }
 }
