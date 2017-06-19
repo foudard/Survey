@@ -12,10 +12,7 @@ import service.PollService;
 
 import javax.servlet.http.HttpServletRequest;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.sql.Date;
-
+import static java.lang.Integer.parseInt;
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
 
@@ -63,30 +60,26 @@ public class PollController {
     public ModelAndView getAddPoll () {
         ModelAndView view = new ModelAndView("addPoll");
         view.addObject("userLogged", SecurityContextHolder.getContext().getAuthentication().getPrincipal());
+        if (SecurityContextHolder.getContext().getAuthentication().getPrincipal() == "anonymousUser") {
+            view.setViewName("redirect:/");
+        }
         return view;
     }
 
     @RequestMapping(value = "/poll/add", method = POST)
     public String postAddPoll (HttpServletRequest request) {
-        Poll survey = new Poll();
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        String[] strBegin = request.getParameter("begin_date").split("/");
+        String[] strEnd = request.getParameter("end_date").split("/");
+
+        Poll survey = new Poll();
         survey.setUser(user);
         survey.setName(request.getParameter("name"));
         survey.setDescription(request.getParameter("description"));
+        survey.setDateBegin(new java.util.Date(parseInt(strBegin[2]) - 19, parseInt(strBegin[1]), parseInt(strBegin[0])));
+        survey.setDateEnd(new java.util.Date(parseInt(strEnd[2]) - 19, parseInt(strEnd[1]), parseInt(strEnd[0])));
 
-        SimpleDateFormat formatter = new SimpleDateFormat("dd/MMM/yyyy");
-        try {
-            Date begin_date = (Date) formatter.parse(request.getParameter("begin_date"));
-            Date end_date = (Date) formatter.parse(request.getParameter("end_date"));
-            survey.setDateBegin(begin_date);
-            survey.setDateEnd(end_date);
-            pollService.save(survey);
-        }
-        catch (ParseException e) { return "/error"; }
-
-        // Response resp = new Response();
-        // resp.setValue();
-        // resp.setPollId();
+        pollService.save(survey);
         return "redirect:/";
     }
 }

@@ -12,13 +12,14 @@ public class Poll {
     private Integer id;
     private String name;
     private String description;
-    private java.sql.Date dateBegin;
-    private java.sql.Date dateEnd;
+    private java.util.Date dateBegin;
+    private java.util.Date dateEnd;
     private User user;
 
     public Poll() {}
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     public Integer getId() {
         return id;
@@ -50,21 +51,21 @@ public class Poll {
 
     @Basic
     @Column(name = "date_begin")
-    public java.sql.Date getDateBegin() {
+    public java.util.Date getDateBegin() {
         return dateBegin;
     }
 
-    public void setDateBegin(java.sql.Date dateBegin) {
+    public void setDateBegin(java.util.Date dateBegin) {
         this.dateBegin = dateBegin;
     }
 
     @Basic
     @Column(name = "date_end")
-    public java.sql.Date getDateEnd() {
+    public java.util.Date getDateEnd() {
         return dateEnd;
     }
 
-    public void setDateEnd(java.sql.Date dateEnd) {
+    public void setDateEnd(java.util.Date dateEnd) {
         this.dateEnd = dateEnd;
     }
 
