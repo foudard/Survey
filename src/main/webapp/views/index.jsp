@@ -27,6 +27,7 @@
                                 <ul class="dropdown-menu">
                                     <c:if test="${userLogged.getRole().getName() == 'admin'}">
                                         <li><a href="/user/add">Ajouter un rédacteur</a></li>
+                                        <li><a href="/poll/add">Créer un sondage</a></li>
                                     </c:if>
                                     <c:if test="${userLogged.getRole().getName() == 'writer'}">
                                         <li><a href="/user/add">Créer un nouveau sondage</a></li>

@@ -41,4 +41,7 @@ public class PollController {
     public String postPoll () {
         return "redirect:/poll";
     }
+
+    @RequestMapping(value = "/poll/add", method = GET)
+    public String addPoll () { return "addPoll"; }
 }
