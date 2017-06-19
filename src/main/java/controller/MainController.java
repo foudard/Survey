@@ -34,6 +34,11 @@ public class MainController {
         return view;
     }
 
+    @RequestMapping(value="/error", method=GET)
+    public String error () {
+        return "redirect:/";
+    }
+
     @RequestMapping(value="/login", method=GET)
     public ModelAndView login () {
         ModelAndView view = new ModelAndView("login");
