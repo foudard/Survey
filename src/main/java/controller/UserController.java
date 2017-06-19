@@ -30,7 +30,7 @@ public class UserController {
 
     @RequestMapping(value = "/user/add", method = GET)
     public ModelAndView addWriter () {
-        ModelAndView view = new ModelAndView("adduser");
+        ModelAndView view = new ModelAndView("addUser");
         view.addObject("userLogged", SecurityContextHolder.getContext().getAuthentication().getPrincipal());
         return view;
     }

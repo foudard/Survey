@@ -9,7 +9,7 @@ import javax.persistence.*;
 @Entity(name = "poll")
 public class Poll {
 
-    private int id;
+    private Integer id;
     private String name;
     private String description;
     private java.sql.Date dateBegin;
@@ -20,11 +20,11 @@ public class Poll {
 
     @Id
     @Column(name = "id")
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
