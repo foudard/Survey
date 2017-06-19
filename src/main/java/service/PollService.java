@@ -17,4 +17,14 @@ public class PollService implements IPollService {
     public Poll save(Poll poll) {
         return pollDao.save(poll);
     }
+
+    @Override
+    public Iterable<Poll> findAll() {
+        return pollDao.findAll();
+    }
+
+    @Override
+    public Poll findOne(Integer id) {
+        return pollDao.findOne(id);
+    }
 }

@@ -4,47 +4,21 @@
     <%@include file="navbar.jsp" %>
     <div class="container-fluid">
         <div class="row">
-            <form action="/poll" method="POST">
+            <c:forEach var="poll" items="${polls}" >
                 <div class="col-md-6 col-md-offset-3">
                     <div class="panel panel-default">
                         <div class="panel-body">
+                        <span>
+                                ${poll.getName()}
+                        </span>
                             <span>
-                                Quel est votre genre cinématographique préféré ?
-                            </span>
-                            <span>
-                                <strong>1154 votes</strong>
-                            </span>
-                            <input type="submit" class="btn btn-primary pull-right" value="Participer" />
+                            <strong>(1154 votes)</strong>
+                        </span>
+                            <a href="/poll/${poll.getId()}"><input type="submit" class="btn btn-primary pull-right" value="Participer" /></a>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 col-md-offset-3">
-                    <div class="panel panel-default">
-                        <div class="panel-body">
-                            <span>
-                                Sport ou Jeux vidéos ?
-                            </span>
-                            <span>
-                                <strong>753 votes</strong>
-                            </span>
-                            <input type="submit" class="btn btn-primary pull-right" value="Participer" />
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-md-offset-3">
-                    <div class="panel panel-default">
-                        <div class="panel-body">
-                            <span>
-                                Fait-il beau aujourd'hui ?
-                            </span>
-                            <span>
-                                <strong>26 votes</strong>
-                            </span>
-                            <input type="submit" class="btn btn-primary pull-right" value="Participer" />
-                        </div>
-                    </div>
-                </div>
-            </form>
+            </c:forEach>
         </div>
     </div>
 </body>
