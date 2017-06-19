@@ -12,7 +12,9 @@ import service.PollService;
 
 import javax.servlet.http.HttpServletRequest;
 
-import java.util.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.sql.Date;
 
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
@@ -71,17 +73,20 @@ public class PollController {
         survey.setUser(user);
         survey.setName(request.getParameter("name"));
         survey.setDescription(request.getParameter("description"));
-        survey.setDateBegin(new java.sql.Date(2017, 06, 20));
-        survey.setDateEnd(new java.sql.Date(2017, 07, 20));
 
-        // PollService pollService = new PollService();
-        pollService.save(survey);
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MMM/yyyy");
+        try {
+            Date begin_date = (Date) formatter.parse(request.getParameter("begin_date"));
+            Date end_date = (Date) formatter.parse(request.getParameter("end_date"));
+            survey.setDateBegin(begin_date);
+            survey.setDateEnd(end_date);
+            pollService.save(survey);
+        }
+        catch (ParseException e) { return "/error"; }
 
         // Response resp = new Response();
         // resp.setValue();
         // resp.setPollId();
         return "redirect:/";
     }
-
-
 }

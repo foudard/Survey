@@ -46,7 +46,7 @@
                     <input class="form-control response" name="res[]" type="text" placeholder="Réponse 9"/>
                 </div>
                 <div class="form-group">
-                    <input type="submit" class="btn btn-primary getIn" value="Créer"/>
+                    <input id="create" type="submit" class="btn btn-primary getIn" value="Créer"/>
                 </div>
             </form>
         </div>

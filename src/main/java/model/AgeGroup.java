@@ -12,8 +12,6 @@ public class AgeGroup {
     private Integer id;
     private String name;
 
-    public AgeGroup () {}
-
     @Id
     @Column(name = "id")
     public int getId() {
