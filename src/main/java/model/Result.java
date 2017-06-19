@@ -9,15 +9,15 @@ import javax.persistence.*;
 @Entity(name = "result")
 public class Result {
 
-    private int id;
+    private Integer id;
     private String pseudo;
-    private int age;
-    private int ageGroupId;
-    private int responseId;
+    private Integer age;
+    private AgeGroup ageGroup;
+    private Response response;
 
     @Id
     @Column(name = "id")
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
@@ -37,31 +37,31 @@ public class Result {
 
     @Basic
     @Column(name = "age")
-    public int getAge() {
+    public Integer getAge() {
         return age;
     }
 
-    public void setAge(int age) {
+    public void setAge(Integer age) {
         this.age = age;
     }
 
     @Basic
     @Column(name = "age_group_id")
-    public int getAgeGroupId() {
-        return ageGroupId;
+    public AgeGroup getAgeGroup() {
+        return ageGroup;
     }
 
-    public void setAgeGroupId(int ageGroupId) {
-        this.ageGroupId = ageGroupId;
+    public void setAgeGroup(AgeGroup ageGroup) {
+        this.ageGroup = ageGroup;
     }
 
     @Basic
     @Column(name = "response_id")
-    public int getResponseId() {
-        return responseId;
+    public Response getResponse() {
+        return this.response;
     }
 
-    public void setResponseId(int responseId) {
-        this.responseId = responseId;
+    public void setResponse(Response response) {
+        this.response = response;
     }
 }

@@ -9,7 +9,7 @@ import javax.persistence.*;
 @Entity(name = "age_group")
 public class AgeGroup {
 
-    private int id;
+    private Integer id;
     private String name;
 
     @Id
@@ -18,7 +18,7 @@ public class AgeGroup {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
