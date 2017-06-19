@@ -35,15 +35,15 @@
                     <label class="radio-inline"><input type="radio" name="nb_res" value="9">9</label>
                 </div>
                 <div class="form-group">
-                    <input class="form-control response" name="res_1" type="text" placeholder="Réponse 1" required/>
-                    <input class="form-control response" name="res_2" type="text" placeholder="Réponse 2"/>
-                    <input class="form-control response" name="res_3" type="text" placeholder="Réponse 3"/>
-                    <input class="form-control response" name="res_4" type="text" placeholder="Réponse 4"/>
-                    <input class="form-control response" name="res_5" type="text" placeholder="Réponse 5"/>
-                    <input class="form-control response" name="res_6" type="text" placeholder="Réponse 6"/>
-                    <input class="form-control response" name="res_7" type="text" placeholder="Réponse 7"/>
-                    <input class="form-control response" name="res_8" type="text" placeholder="Réponse 8"/>
-                    <input class="form-control response" name="res_9" type="text" placeholder="Réponse 9"/>
+                    <input class="form-control response" name="res[]" type="text" placeholder="Réponse 1" required/>
+                    <input class="form-control response" name="res[]" type="text" placeholder="Réponse 2"/>
+                    <input class="form-control response" name="res[]" type="text" placeholder="Réponse 3"/>
+                    <input class="form-control response" name="res[]" type="text" placeholder="Réponse 4"/>
+                    <input class="form-control response" name="res[]" type="text" placeholder="Réponse 5"/>
+                    <input class="form-control response" name="res[]" type="text" placeholder="Réponse 6"/>
+                    <input class="form-control response" name="res[]" type="text" placeholder="Réponse 7"/>
+                    <input class="form-control response" name="res[]" type="text" placeholder="Réponse 8"/>
+                    <input class="form-control response" name="res[]" type="text" placeholder="Réponse 9"/>
                 </div>
                 <div class="form-group">
                     <input type="submit" class="btn btn-primary getIn" value="Créer"/>

@@ -16,6 +16,8 @@ public class Poll {
     private java.sql.Date dateEnd;
     private int userId;
 
+    public Poll() {}
+
     @Id
     @Column(name = "id")
     public int getId() {

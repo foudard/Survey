@@ -1,12 +1,15 @@
 package controller;
 
-import model.User;
+import model.Poll;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
+import service.PollService;
 
 import javax.servlet.http.HttpServletRequest;
+
+import java.util.Date;
 
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
@@ -49,5 +52,25 @@ public class PollController {
     }
 
     @RequestMapping(value = "/poll/add", method = GET)
-    public String addPoll () { return "addPoll"; }
+    public String getAddPoll () { return "addPoll"; }
+
+    @RequestMapping(value = "/poll/add", method = POST)
+    public String postAddPoll (HttpServletRequest request) {
+        Poll survey = new Poll();
+        survey.setUserId(1);
+        survey.setName(request.getParameter("name"));
+        survey.setDescription(request.getParameter("description"));
+        // survey.setDateBegin(request.getParameter("begin_date");
+        // survey.setDateEnd(request.getParameter("end_date"));
+
+        PollService pollService = new PollService();
+        pollService.save(survey);
+
+        // Response resp = new Response();
+        // resp.setValue();
+        // resp.setPollId();
+        return "addPoll";
+    }
+
+
 }
