@@ -9,19 +9,19 @@ import javax.persistence.*;
 @Entity(name = "response")
 public class Response {
 
-    private int id;
+    private Integer id;
     private String value;
-    private int pollId;
+    private Poll poll;
 
     public Response () {}
 
     @Id
     @Column(name = "id")
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -35,13 +35,13 @@ public class Response {
         this.value = value;
     }
 
-    @Basic
-    @Column(name = "poll_id")
-    public int getPollId() {
-        return pollId;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumns({ @JoinColumn(name = "poll_id", referencedColumnName = "id") })
+    public Poll getPoll() {
+        return this.poll;
     }
 
-    public void setPollId(int pollId) {
-        this.pollId = pollId;
+    public void setPoll(Poll poll) {
+        this.poll = poll;
     }
 }
