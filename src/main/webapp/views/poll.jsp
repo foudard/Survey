@@ -14,7 +14,13 @@
         <div class="row">
             <c:forEach var="response" items="${poll.getResponses()}" >
                 <div class="col-md-6 col-md-offset-3">
-                    <div class="panel panel-default">
+                    <c:if test='${response.hasAnswered(pseudo, age) == true}'>
+                        <c:set value="panel-selected" var="selected"></c:set>
+                    </c:if>
+                    <c:if test='${response.hasAnswered(pseudo, age) == false}'>
+                        <c:remove var="selected"></c:remove>
+                    </c:if>
+                    <div class="panel panel-default ${selected}">
                         <div class="panel-body">
                             <span>
                                 ${response.getValue()}
@@ -22,10 +28,12 @@
                             <span>
                                 <strong> - ${response.getResults().size()} vote(s)</strong>
                             </span>
-                            <form action="/poll/${poll.getId()}" method="POST">
-                                <input type="number" name="resultId" value="${response.getId()}" class="hidden"/>
-                                <input type="submit" class="btn btn-primary pull-right" value="Voter"/>
-                            </form>
+                            <c:if test='${poll.hasAnswered(pseudo, age) == false}'>
+                                <form action="/poll/${poll.getId()}" method="POST">
+                                    <input type="number" name="resultId" value="${response.getId()}" class="hidden"/>
+                                    <input type="submit" class="btn btn-primary pull-right" value="Voter"/>
+                                </form>
+                            </c:if>
                         </div>
                     </div>
                 </div>

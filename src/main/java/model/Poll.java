@@ -94,4 +94,15 @@ public class Poll {
         }
         return nb;
     }
+
+    @Transient
+    public Boolean hasAnswered(String pseudo, Integer age) {
+        Boolean answered = false;
+        for (Response response : this.responses) {
+            if (response.hasAnswered(pseudo, age)) {
+                answered = true;
+            }
+        }
+        return answered;
+    }
 }

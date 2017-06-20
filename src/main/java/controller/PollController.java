@@ -42,10 +42,15 @@ public class PollController {
     ResultService resultService;
 
     @RequestMapping(value = "/polls", method = GET)
-    public ModelAndView getPolls () {
+    public ModelAndView getPolls (HttpServletRequest request) {
         ModelAndView view = new ModelAndView("polls");
         view.addObject("userLogged", SecurityContextHolder.getContext().getAuthentication().getPrincipal());
         view.addObject("polls", pollService.findAll());
+        HttpSession session = request.getSession();
+        String pseudo = (String) session.getAttribute("pseudo");
+        Integer age = (Integer) session.getAttribute("age");
+        view.addObject("pseudo", pseudo);
+        view.addObject("age", age);
         return view;
     }
 
@@ -96,10 +101,15 @@ public class PollController {
     }
 
     @RequestMapping(value = "/poll/{id}", method = GET)
-    public ModelAndView getPoll (@PathVariable("id") Integer id) {
+    public ModelAndView getPoll (@PathVariable("id") Integer id, HttpServletRequest request) {
         ModelAndView view = new ModelAndView("poll");
         view.addObject("userLogged", SecurityContextHolder.getContext().getAuthentication().getPrincipal());
         view.addObject("poll", pollService.findOne(id));
+        HttpSession session = request.getSession();
+        String pseudo = (String) session.getAttribute("pseudo");
+        Integer age = (Integer) session.getAttribute("age");
+        view.addObject("pseudo", pseudo);
+        view.addObject("age", age);
         return view;
     }
 
@@ -112,7 +122,7 @@ public class PollController {
         result.setAgeGroup((AgeGroup) session.getAttribute("ageGroup"));
         result.setResponse(responseService.findOne(parseInt(request.getParameter("resultId"))));
         resultService.save(result);
-        return "redirect:/polls";
+        return "redirect:/poll/" + id;
     }
 
     @RequestMapping(value = "/poll/add", method = GET)

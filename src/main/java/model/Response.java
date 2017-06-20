@@ -4,6 +4,8 @@ package model;
  * Created by Val on 16/05/2017.
  */
 
+import com.sun.org.apache.xpath.internal.operations.Bool;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -52,5 +54,16 @@ public class Response {
 
     public void setResults(List<Result> results) {
         this.results = results;
+    }
+
+    @Transient
+    public Boolean hasAnswered(String pseudo, Integer age) {
+        Boolean answered = false;
+        for (Result result : this.results) {
+            if (result.getAge().equals(age) && result.getPseudo().equals(pseudo)) {
+                answered = true;
+            }
+        }
+        return answered;
     }
 }

@@ -14,7 +14,12 @@
                             <span>
                             <strong> - ${poll.getNbResults()} vote(s)</strong>
                         </span>
-                            <a href="/poll/${poll.getId()}"><input type="submit" class="btn btn-primary pull-right" value="Participer" /></a>
+                            <c:if test='${poll.hasAnswered(pseudo, age) == false}'>
+                                <a href="/poll/${poll.getId()}"><input type="submit" class="btn btn-primary pull-right" value="Participer" /></a>
+                            </c:if>
+                            <c:if test='${poll.hasAnswered(pseudo, age) == true}'>
+                                <a href="/poll/${poll.getId()}"><input type="submit" class="btn btn-primary pull-right" value="Voir les résultats" /></a>
+                            </c:if>
                         </div>
                     </div>
                 </div>
