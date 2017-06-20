@@ -6,6 +6,22 @@
     bottom: 2px;
 }
 
+nav { z-index: 10; }
+
+div.wallpaper {
+    position: fixed;
+    z-index: 0;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("../img/wallpaper.png");
+    background-size: cover;
+    filter: opacity(0.1) blur(2px);
+}
+
+body { padding-top: 65px; }
+
 form {
     display: inline;
 }
