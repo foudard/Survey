@@ -15,9 +15,14 @@ public class Response {
     private Poll poll;
     private List<Result> results;
 
-    public Response () {}
+    public Response () { }
+    public Response (String value, Poll poll) {
+        this.value = value;
+        this.poll = poll;
+    }
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     public Integer getId() {
         return id;

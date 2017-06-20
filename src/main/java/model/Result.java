@@ -20,6 +20,7 @@ public class Result {
     public Result () {}
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     public Integer getId() {
         return id;
