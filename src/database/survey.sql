@@ -31,6 +31,30 @@ CREATE TABLE `age_group` (
   `name` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Contenu de la table `age_group`
+--
+
+INSERT INTO `age_group` (`id`, `name`) VALUES
+(1, '-10 ans'),
+(2, 'entre 10 et 15 ans'),
+(3, 'entre 15 et 20 ans'),
+(4, 'entre 20 et 25 ans'),
+(5, 'entre 25 et 30 ans'),
+(6, 'entre 30 et 35 ans'),
+(7, 'entre 35 et 40 ans'),
+(8, 'entre 40 et 45 ans'),
+(9, 'entre 45 et 50 ans'),
+(10, 'entre 50 et 55 ans'),
+(11, 'entre 55 et 60 ans'),
+(12, 'entre 60 et 65 ans'),
+(13, 'entre 65 et 70 ans'),
+(14, 'entre 70 et 75 ans'),
+(15, 'entre 75 et 80 ans'),
+(16, 'entre 80 et 85 ans'),
+(17, 'entre 85 et 90 ans'),
+(18, '+90 ans');
+
 -- --------------------------------------------------------
 
 --
