@@ -32,6 +32,9 @@ public class UserController {
     public ModelAndView addWriter () {
         ModelAndView view = new ModelAndView("addUser");
         view.addObject("userLogged", SecurityContextHolder.getContext().getAuthentication().getPrincipal());
+        if (SecurityContextHolder.getContext().getAuthentication().getPrincipal() == "anonymousUser") {
+            view.setViewName("redirect:/");
+        }
         return view;
     }
 
