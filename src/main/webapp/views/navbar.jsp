@@ -9,7 +9,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="/">Survey</a>
+                <a class="navbar-brand" href="/"><img alt="Logo" src="../assets/img/logo.png" id="logo"/>Survey</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
