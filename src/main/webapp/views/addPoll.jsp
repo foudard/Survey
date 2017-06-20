@@ -24,7 +24,7 @@
                 </div>
                 <div class="form-group">
                     <label>Nombre de réponse</label><br>
-                    <label class="radio-inline"><input type="radio" name="nb_res" value="2">2</label>
+                    <label class="radio-inline"><input type="radio" name="nb_res" value="2" checked>2</label>
                     <label class="radio-inline"><input type="radio" name="nb_res" value="3">3</label>
                     <label class="radio-inline"><input type="radio" name="nb_res" value="4">4</label>
                     <label class="radio-inline"><input type="radio" name="nb_res" value="5">5</label>
@@ -37,13 +37,13 @@
                     <input id="responses" type="hidden" name="responses"/>
                     <input class="form-control response" type="text" placeholder="Réponse 1" required/>
                     <input class="form-control response" type="text" placeholder="Réponse 2" required/>
-                    <input class="form-control response" type="text" placeholder="Réponse 3"/>
-                    <input class="form-control response" type="text" placeholder="Réponse 4"/>
-                    <input class="form-control response" type="text" placeholder="Réponse 5"/>
-                    <input class="form-control response" type="text" placeholder="Réponse 6"/>
-                    <input class="form-control response" type="text" placeholder="Réponse 7"/>
-                    <input class="form-control response" type="text" placeholder="Réponse 8"/>
-                    <input class="form-control response" type="text" placeholder="Réponse 9"/>
+                    <input class="form-control response hidden" type="text" placeholder="Réponse 3"/>
+                    <input class="form-control response hidden" type="text" placeholder="Réponse 4"/>
+                    <input class="form-control response hidden" type="text" placeholder="Réponse 5"/>
+                    <input class="form-control response hidden" type="text" placeholder="Réponse 6"/>
+                    <input class="form-control response hidden" type="text" placeholder="Réponse 7"/>
+                    <input class="form-control response hidden" type="text" placeholder="Réponse 8"/>
+                    <input class="form-control response hidden" type="text" placeholder="Réponse 9"/>
                 </div>
                 <div class="form-group">
                     <input id="create" type="submit" class="btn btn-primary getIn" value="Créer"/>
