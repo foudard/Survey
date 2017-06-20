@@ -63,7 +63,7 @@ INSERT INTO `age_group` (`id`, `name`) VALUES
 
 CREATE TABLE `poll` (
   `id` int(11) NOT NULL,
-  `name` varchar(50) NOT NULL,
+  `name` varchar(500) NOT NULL,
   `description` text NOT NULL,
   `date_begin` date NOT NULL,
   `date_end` date NOT NULL,
