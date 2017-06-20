@@ -8,7 +8,15 @@
                 <h1>${poll.getName()}</h1>
             </div>
             <div class="col-md-12">
-                <h2>${poll.getNbResults()} vote(s)</h2>
+                <h2 class="text-muted">${poll.getDescription()}</h2>
+            </div>
+            <div class="col-md-12">
+                <c:if test="${poll.getNbResults() > 1}">
+                    <h3>${poll.getNbResults()} votes</h3>
+                </c:if>
+                <c:if test="${poll.getNbResults() < 2}">
+                    <h3>${poll.getNbResults()} vote</h3>
+                </c:if>
             </div>
         </div>
         <div class="row">
@@ -33,12 +41,19 @@
                             </c:if>
                             <c:if test='${poll.hasAnswered(pseudo, age) == true}'>
                                 <span class="pull-right">
-                                    <strong>${response.getResults().size()} vote(s)</strong>
+                                    <c:if test="${response.getResults().size() > 1}">
+                                        <strong>${response.getResults().size()} votes</strong>
+                                    </c:if>
+                                    <c:if test="${response.getResults().size() < 2}">
+                                        <strong>${response.getResults().size()} vote</strong>
+                                    </c:if>
                                 </span>
                                 <div class="progress" style="position:relative;top:15px;">
                                     <div class="progress-bar progress-bar-info progress-bar-striped active" role="progressbar"
                                          aria-valuenow="${Math.round((response.getResults().size() / poll.getNbResults()) * 100)}" aria-valuemin="0" aria-valuemax="100" style="width:${Math.round((response.getResults().size() / poll.getNbResults()) * 100)}%">
+                                        <c:if test="${Math.round((response.getResults().size() / poll.getNbResults()) * 100) > 0}">
                                             ${Math.round((response.getResults().size() / poll.getNbResults()) * 100)} %
+                                        </c:if>
                                     </div>
                                 </div>
                             </c:if>

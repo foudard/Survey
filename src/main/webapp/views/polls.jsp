@@ -11,8 +11,13 @@
                         <span>
                             ${poll.getName()}
                         </span>
-                            <span>
-                            <strong> - ${poll.getNbResults()} vote(s)</strong>
+                        <span>
+                            <c:if test="${poll.getNbResults() > 1}">
+                                <strong> - ${poll.getNbResults()} votes</strong>
+                            </c:if>
+                            <c:if test="${poll.getNbResults() < 2}">
+                                <strong> - ${poll.getNbResults()} vote</strong>
+                            </c:if>
                         </span>
                             <c:if test='${poll.hasAnswered(pseudo, age) == false}'>
                                 <a href="/poll/${poll.getId()}"><input type="submit" class="btn btn-primary pull-right show-poll" value="Participer" /></a>
