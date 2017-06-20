@@ -1,6 +1,7 @@
 package service;
 
 import dao.PollDao;
+import dao.ResponseDao;
 import model.Poll;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

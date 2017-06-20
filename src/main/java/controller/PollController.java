@@ -1,7 +1,9 @@
 package controller;
 
-import dao.PollDao;
 import model.*;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -16,7 +18,9 @@ import service.ResultService;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import static java.lang.Integer.parseInt;
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
@@ -140,13 +144,21 @@ public class PollController {
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         String[] strBegin = request.getParameter("begin_date").split("/");
         String[] strEnd = request.getParameter("end_date").split("/");
+        List<Response> responses = new ArrayList<Response>();
 
         Poll survey = new Poll();
         survey.setUser(user);
         survey.setName(request.getParameter("name"));
         survey.setDescription(request.getParameter("description"));
-        survey.setDateBegin(new java.util.Date(parseInt(strBegin[2]) - 19, parseInt(strBegin[1]), parseInt(strBegin[0])));
-        survey.setDateEnd(new java.util.Date(parseInt(strEnd[2]) - 19, parseInt(strEnd[1]), parseInt(strEnd[0])));
+        survey.setDateBegin(new java.util.Date(parseInt(strBegin[2]) - 1900, parseInt(strBegin[1]), parseInt(strBegin[0])));
+        survey.setDateEnd(new java.util.Date(parseInt(strEnd[2]) - 1900, parseInt(strEnd[1]), parseInt(strEnd[0])));
+
+        JSONArray jsonarray = new JSONArray(request.getParameter("responses"));
+        for (int i = 0; i < jsonarray.length(); i++) {
+            JSONObject jsonobject = jsonarray.getJSONObject(i);
+            responses.add(new Response(jsonobject.getString("value"), survey));
+        }
+        survey.setResponses(responses);
 
         pollService.save(survey);
         return "redirect:/";

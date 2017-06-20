@@ -3,19 +3,39 @@
  */
 'use strict'
 
+const send_response = document.querySelector('#responses')
 const save = document.querySelector('#create')
 const nb_res = document.querySelectorAll('input[name=nb_res]')
 const responses = document.querySelectorAll('.response')
-console.log(responses)
 
 nb_res.forEach(function (element) {
     element.addEventListener('click', function () {
-        for (var i = 0; i < nb_res.length; i++) {
+        var items = new Array()
+        for (var i = 0; i <= nb_res.length; i++) {
             if (i <= parseInt(element.value)-1) {
                 responses[i].classList.remove('hidden')
+                items.push({ value: responses[i].value })
             }
             else responses[i].classList.add('hidden')
         }
+        items = JSON.stringify(items)
+        send_response.value = items
+    })
+})
+
+responses.forEach(function (element) {
+    element.addEventListener('change', function () {
+        var result = document.querySelector('input[name=nb_res]:checked').value
+        var items = new Array()
+        for (var i = 0; i <= nb_res.length; i++) {
+            if (i <= parseInt(result) - 1) {
+                responses[i].classList.remove('hidden')
+                items.push({ value: responses[i].value })
+            }
+            else responses[i].classList.add('hidden')
+        }
+        items = JSON.stringify(items)
+        send_response.value = items
     })
 })
 
@@ -39,7 +59,6 @@ dates.forEach(function (date) {
         if (day.length !== 2) {
             return save.setAttribute('disabled', 'disabled')
         }
-
-        save.removeAttribute('disabled')
+        return save.removeAttribute('disabled')
     })
 })

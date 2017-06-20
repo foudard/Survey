@@ -79,7 +79,7 @@ public class Poll {
         this.user = user;
     }
 
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "poll" )
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "poll", cascade = CascadeType.PERSIST)
     public List<Response> getResponses() { return this.responses; }
 
     public void setResponses(List<Response> responses) {
