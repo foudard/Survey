@@ -9,4 +9,5 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface ResponseDao extends CrudRepository<Response, Integer> {
+    Response findOne(Integer id);
 }

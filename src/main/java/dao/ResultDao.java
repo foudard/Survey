@@ -9,5 +9,5 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface ResultDao extends CrudRepository<Result, Integer> {
-
+    Result save(Result user);
 }

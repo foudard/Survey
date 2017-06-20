@@ -8,7 +8,7 @@
                 <h1>${poll.getName()}</h1>
             </div>
             <div class="col-md-12">
-                <h2>1174 votes</h2>
+                <h2>${poll.getNbResults()} vote(s)</h2>
             </div>
         </div>
         <div class="row">
@@ -20,10 +20,10 @@
                                 ${response.getValue()}
                             </span>
                             <span>
-                                <strong>(458 votes)</strong>
+                                <strong> - ${response.getResults().size()} vote(s)</strong>
                             </span>
                             <form action="/poll/${poll.getId()}" method="POST">
-                                <input type="number" value="${response.getId()}" class="hidden"/>
+                                <input type="number" name="resultId" value="${response.getId()}" class="hidden"/>
                                 <input type="submit" class="btn btn-primary pull-right" value="Voter"/>
                             </form>
                         </div>

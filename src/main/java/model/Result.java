@@ -5,6 +5,7 @@ package model;
  */
 
 import com.sun.org.apache.regexp.internal.RE;
+import jdk.nashorn.internal.runtime.RewriteException;
 
 import javax.persistence.*;
 

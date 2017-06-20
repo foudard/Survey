@@ -85,4 +85,13 @@ public class Poll {
     public void setResponses(List<Response> responses) {
         this.responses = responses;
     }
+
+    @Transient
+    public Integer getNbResults() {
+        int nb = 0;
+        for (Response response : this.responses) {
+            nb += response.getResults().size();
+        }
+        return nb;
+    }
 }
