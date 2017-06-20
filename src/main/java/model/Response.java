@@ -47,7 +47,7 @@ public class Response {
         this.poll = poll;
     }
 
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "response" )
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "response" )
     public List<Result> getResults() { return this.results; }
 
     public void setResults(List<Result> results) {

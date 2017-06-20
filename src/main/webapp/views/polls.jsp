@@ -9,10 +9,10 @@
                     <div class="panel panel-default">
                         <div class="panel-body">
                         <span>
-                                ${poll.getName()}
+                            ${poll.getName()}
                         </span>
                             <span>
-                            <strong>(1154 votes)</strong>
+                            <strong> - ${poll.getNbResults()} vote(s)</strong>
                         </span>
                             <a href="/poll/${poll.getId()}"><input type="submit" class="btn btn-primary pull-right" value="Participer" /></a>
                         </div>
