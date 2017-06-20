@@ -22,16 +22,35 @@
                     <label for="end-date">Date de fin</label>
                     <input class="form-control" id="end-date" name="end_date" type="date" placeholder="25/01/2011" required />
                 </div>
+
                 <div class="form-group">
                     <label>Nombre de réponse</label><br>
-                    <label class="radio-inline"><input type="radio" name="nb_res" value="2" checked>2</label>
-                    <label class="radio-inline"><input type="radio" name="nb_res" value="3">3</label>
-                    <label class="radio-inline"><input type="radio" name="nb_res" value="4">4</label>
-                    <label class="radio-inline"><input type="radio" name="nb_res" value="5">5</label>
-                    <label class="radio-inline"><input type="radio" name="nb_res" value="6">6</label>
-                    <label class="radio-inline"><input type="radio" name="nb_res" value="7">7</label>
-                    <label class="radio-inline"><input type="radio" name="nb_res" value="8">8</label>
-                    <label class="radio-inline"><input type="radio" name="nb_res" value="9">9</label>
+                    <div class="btn-group" data-toggle="buttons">
+                        <label class="btn btn-primary results active">
+                            <input type="radio" name="nb_res" autocomplete="off" value="2" checked> 2
+                        </label>
+                        <label class="btn btn-primary results">
+                            <input type="radio" name="nb_res" autocomplete="off" value="3"> 3
+                        </label>
+                        <label class="btn btn-primary results">
+                            <input type="radio" name="nb_res" autocomplete="off" value="4"> 4
+                        </label>
+                        <label class="btn btn-primary results">
+                            <input type="radio" name="nb_res" autocomplete="off" value="5"> 5
+                        </label>
+                        <label class="btn btn-primary results">
+                            <input type="radio" name="nb_res" autocomplete="off" value="6"> 6
+                        </label>
+                        <label class="btn btn-primary results">
+                            <input type="radio" name="nb_res" autocomplete="off" value="7"> 7
+                        </label>
+                        <label class="btn btn-primary results">
+                            <input type="radio" name="nb_res" autocomplete="off" value="8"> 8
+                        </label>
+                        <label class="btn btn-primary results">
+                            <input type="radio" name="nb_res" autocomplete="off" value="9"> 9
+                        </label>
+                    </div>
                 </div>
                 <div class="form-group">
                     <input id="responses" type="hidden" name="responses"/>

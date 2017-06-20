@@ -3,16 +3,21 @@
  */
 'use strict'
 
+// number of results to send
+var results = 2
+
 const send_response = document.querySelector('#responses')
 const save = document.querySelector('#create')
-const nb_res = document.querySelectorAll('input[name=nb_res]')
+const nb_res = document.querySelectorAll('.results')
 const responses = document.querySelectorAll('.response')
 
 nb_res.forEach(function (element) {
-    element.addEventListener('click', function () {
+    element.addEventListener('click', function ({target}) {
+        var result = target.querySelector('input[name=nb_res]').value
+        results = result
         var items = new Array()
         for (var i = 0; i <= nb_res.length; i++) {
-            if (i <= parseInt(element.value)-1) {
+            if (i <= parseInt(result) - 1) {
                 responses[i].classList.remove('hidden')
                 items.push({ value: responses[i].value })
             }
@@ -25,10 +30,9 @@ nb_res.forEach(function (element) {
 
 responses.forEach(function (element) {
     element.addEventListener('change', function () {
-        var result = document.querySelector('input[name=nb_res]:checked').value
         var items = new Array()
         for (var i = 0; i <= nb_res.length; i++) {
-            if (i <= parseInt(result) - 1) {
+            if (i <= parseInt(results) - 1) {
                 responses[i].classList.remove('hidden')
                 items.push({ value: responses[i].value })
             }

@@ -28,3 +28,12 @@ form {
 .response {
     margin-bottom: 15px;
 }
+
+textarea#description {
+    min-width: 100%;
+    max-width: 100%;
+}
+
+input.show-poll {
+    width: 21%;
+}

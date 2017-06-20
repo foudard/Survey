@@ -15,10 +15,10 @@
                             <strong> - ${poll.getNbResults()} vote(s)</strong>
                         </span>
                             <c:if test='${poll.hasAnswered(pseudo, age) == false}'>
-                                <a href="/poll/${poll.getId()}"><input type="submit" class="btn btn-primary pull-right" value="Participer" /></a>
+                                <a href="/poll/${poll.getId()}"><input type="submit" class="btn btn-primary pull-right show-poll" value="Participer" /></a>
                             </c:if>
                             <c:if test='${poll.hasAnswered(pseudo, age) == true}'>
-                                <a href="/poll/${poll.getId()}"><input type="submit" class="btn btn-primary pull-right" value="Voir les résultats" /></a>
+                                <a href="/poll/${poll.getId()}"><input type="submit" class="btn btn-warning pull-right show-poll" value="Voir les résultats" /></a>
                             </c:if>
                         </div>
                     </div>
