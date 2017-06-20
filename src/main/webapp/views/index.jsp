@@ -2,9 +2,9 @@
 <%@include file="header.jsp" %>
 <body>
     <%@include file="navbar.jsp" %>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-6 col-md-offset-3">
+    <div class="container-fluid container-center">
+        <div class="row tpl-center">
+            <div class="col-md-6">
                 <form action="/polls" method="POST">
                     <div class="form-group">
                         <label for="pseudo">Pseudo</label>
