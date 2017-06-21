@@ -2,16 +2,13 @@
 <%@include file="header.jsp" %>
 <body>
     <%@include file="navbar.jsp" %>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-6 col-md-offset-3">
+    <div class="container-fluid container-center">
+        <div class="tpl-center">
+            <h2 class="title text-muted text-center">Connectez-vous !</h2>
+            <div class="col-md-6">
                 <div class="alert alert-info">
                     <strong>Information !</strong> Seuls les administrateurs et rédacteurs du site peuvent s'y connecter.
                 </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-6 col-md-offset-3">
                 <form method="POST" action="/login.do">
                     <div class="form-group">
                         <label for="login">Login</label>

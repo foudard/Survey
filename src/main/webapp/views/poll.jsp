@@ -62,6 +62,9 @@
                 </div>
             </c:forEach>
         </div>
+        <a href="/polls" class="btn btn-danger btn-back">
+            <i class="glyphicon glyphicon-chevron-left"></i> Retour
+        </a>
     </div>
 </body>
 <script src="../assets/js/jquery-3.2.1.min.js" type="text/javascript"></script>
