@@ -4,6 +4,7 @@
     <%@include file="navbar.jsp" %>
     <div class="container-fluid">
         <div class="row">
+            <h2 class="title text-muted text-center">Liste des sondages</h2>
             <c:forEach var="poll" items="${polls}" >
                 <div class="col-md-6 col-md-offset-3">
                     <div class="panel panel-default">
@@ -30,6 +31,9 @@
                 </div>
             </c:forEach>
         </div>
+        <a href="/" class="btn btn-danger btn-back">
+            <i class="glyphicon glyphicon-chevron-left"></i> Retour
+        </a>
     </div>
 </body>
 <%@include file="footer.jsp" %>

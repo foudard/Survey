@@ -1,3 +1,10 @@
+body {
+    font-family: "Comic Sans MS";
+    padding-top: 65px;
+}
+.navbar-brand, h2.title { font-family: "Impact"; }
+
+label { font-size: 15px; }
 #logo {
     width: 30px;
     float: left;
@@ -19,8 +26,6 @@ div.wallpaper {
     background-size: cover;
     filter: opacity(0.1) blur(2px);
 }
-
-body { padding-top: 65px; }
 
 form {
     display: inline;
@@ -60,7 +65,7 @@ form {
 .container-center {
     display: flex;
     width: 100%;
-    height: 100%;
+    height: 90%;
 }
 
 .tpl-center {
@@ -68,7 +73,23 @@ form {
     width: 100%;
     align-items: center;
     justify-content: center;
-    margin-bottom: 30px;
+    flex-direction: column;
+}
+
+.tpl-center h2 {
+    margin-bottom: 10%;
+}
+
+.tpl-center-column {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.tpl-center-column .alert {
+    text-align: center;
 }
 
 textarea#description {
@@ -77,5 +98,11 @@ textarea#description {
 }
 
 input.show-poll {
-    width: 21%;
+    width: 150px;
+}
+
+a.btn-back {
+    position: fixed;
+    left: 15px;
+    bottom: 15px;
 }

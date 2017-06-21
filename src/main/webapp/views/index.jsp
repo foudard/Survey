@@ -4,6 +4,7 @@
     <%@include file="navbar.jsp" %>
     <div class="container-fluid container-center">
         <div class="row tpl-center">
+            <h2 class="title text-muted text-center">Participer à un sondage</h2>
             <div class="col-md-6">
                 <form action="/polls" method="POST">
                     <div class="form-group">
@@ -12,7 +13,7 @@
                     </div>
                     <div class="form-group">
                         <label for="age">Age</label>
-                        <input class="form-control" id="age" name="age" min="13" type="number" placeholder="Age" required/>
+                        <input class="form-control" id="age" name="age" min="13" max="150" type="number" placeholder="Age" required/>
                     </div>
                     <div class="form-group">
                         <input type="submit" class="btn btn-primary getIn" value="Participer"/>
