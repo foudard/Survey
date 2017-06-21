@@ -34,6 +34,12 @@ public class UserController {
         view.addObject("userLogged", SecurityContextHolder.getContext().getAuthentication().getPrincipal());
         if (SecurityContextHolder.getContext().getAuthentication().getPrincipal() == "anonymousUser") {
             view.setViewName("redirect:/");
+        } else {
+            User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+            System.out.println(user.getRole().getName());
+            if (!user.getRole().getName().equals("admin")) {
+                view.setViewName("redirect:/");
+            }
         }
         return view;
     }

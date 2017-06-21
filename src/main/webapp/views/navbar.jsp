@@ -25,9 +25,7 @@
                                 <c:if test="${userLogged.getRole().getName() == 'admin'}">
                                     <li><a href="/user/add">Ajouter un r&eacute;dacteur</a></li>
                                 </c:if>
-                                <c:if test="${userLogged.getRole().getName() == 'writer'}">
-                                    <li><a href="/poll/add">Cr&eacute;er un nouveau sondage</a></li>
-                                </c:if>
+                                <li><a href="/poll/add">Cr&eacute;er un nouveau sondage</a></li>
                                 <li role="separator" class="divider"></li>
                                 <li><a href="/logout">D&eacute;connexion</a></li>
                             </ul>
