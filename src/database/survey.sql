@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.1
--- http://www.phpmyadmin.net
+-- version 4.6.4
+-- https://www.phpmyadmin.net/
 --
 -- Client :  127.0.0.1
--- Généré le :  Mar 20 Juin 2017 à 10:47
--- Version du serveur :  10.1.9-MariaDB
--- Version de PHP :  5.6.15
+-- Généré le :  Jeu 22 Juin 2017 à 08:58
+-- Version du serveur :  5.7.14
+-- Version de PHP :  7.0.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -67,7 +67,8 @@ CREATE TABLE `poll` (
   `description` text NOT NULL,
   `date_begin` date NOT NULL,
   `date_end` date NOT NULL,
-  `user_id` int(11) NOT NULL
+  `user_id` int(11) NOT NULL,
+  `closed` tinyint(1) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -124,7 +125,7 @@ INSERT INTO `role` (`id`, `name`) VALUES
 CREATE TABLE `user` (
   `id` int(11) NOT NULL,
   `login` varchar(50) NOT NULL,
-  `password` varchar(250) NOT NULL,
+  `password` varchar(1000) NOT NULL,
   `role_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -133,7 +134,8 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `login`, `password`, `role_id`) VALUES
-(1, 'admin', '$2a$10$CVOy8DuLQL5a17brOewLOOlpqM9Y6UaUNl8qtv5PF5Uu1Ms/ksmEe', 1);
+(1, 'admin', '$2a$10$ANrv9iEcSNvrs6semX9doerbdVDeL7RTVmVKrq0KdMxs7F3wW/QB.', 1),
+(2, 'jack', '$2a$10$lsQO9unB3pqCwDkU0xI.Ge0Tgp2uY8tIZRj7YeVBkZUpM.Zoq1E2.', 2);
 
 --
 -- Index pour les tables exportées
@@ -188,22 +190,22 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT pour la table `age_group`
 --
 ALTER TABLE `age_group`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 --
 -- AUTO_INCREMENT pour la table `poll`
 --
 ALTER TABLE `poll`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT pour la table `response`
 --
 ALTER TABLE `response`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 --
 -- AUTO_INCREMENT pour la table `result`
 --
 ALTER TABLE `result`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT pour la table `role`
 --
