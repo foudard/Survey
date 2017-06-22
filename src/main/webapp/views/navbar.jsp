@@ -26,6 +26,7 @@
                                     <li><a href="/user/add">Ajouter un r&eacute;dacteur</a></li>
                                 </c:if>
                                 <li><a href="/poll/add">Cr&eacute;er un nouveau sondage</a></li>
+                                <li><a href="/poll/delete">G&eacute;rer les sondages</a></li>
                                 <li role="separator" class="divider"></li>
                                 <li><a href="/logout">D&eacute;connexion</a></li>
                             </ul>

@@ -163,4 +163,25 @@ public class PollController {
         pollService.save(survey);
         return "redirect:/";
     }
+
+    @RequestMapping(value = "/poll/delete", method = GET)
+    public ModelAndView getDeletePoll () {
+        ModelAndView view = new ModelAndView("deletePoll");
+        view.addObject("polls", pollService.findAll());
+        view.addObject("userLogged", SecurityContextHolder.getContext().getAuthentication().getPrincipal());
+        if (SecurityContextHolder.getContext().getAuthentication().getPrincipal() == "anonymousUser") {
+            view.setViewName("redirect:/");
+        }
+        return view;
+    }
+
+    @RequestMapping(value = "/poll/delete/{id}", method = GET)
+    public String getDeletePoll (@PathVariable("id") Integer id) {
+        if (SecurityContextHolder.getContext().getAuthentication().getPrincipal() != "anonymousUser") {
+            Poll poll = pollService.findOne(id);
+            poll.setClosed(true);
+            pollService.save(poll);
+        }
+        return "redirect:/poll/delete";
+    }
 }

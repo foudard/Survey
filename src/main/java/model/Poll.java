@@ -4,6 +4,8 @@ package model;
  * Created by Val on 16/05/2017.
  */
 
+import com.sun.org.apache.xpath.internal.operations.Bool;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -16,6 +18,7 @@ public class Poll {
     private java.util.Date dateBegin;
     private java.util.Date dateEnd;
     private User user;
+    private Boolean closed;
     private List<Response> responses;
 
     public Poll() {}
@@ -81,6 +84,16 @@ public class Poll {
 
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "poll", cascade = CascadeType.PERSIST)
     public List<Response> getResponses() { return this.responses; }
+
+    @Basic
+    @Column(name = "closed")
+    public Boolean getClosed() {
+        return closed;
+    }
+
+    public void setClosed(Boolean closed) {
+        this.closed = closed;
+    }
 
     public void setResponses(List<Response> responses) {
         this.responses = responses;
