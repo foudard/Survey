@@ -1,8 +1,18 @@
+@font-face {
+    font-family: Just;
+    src: url("../fonts/Just tell me what regular (Version 2).otf");
+}
+
+@font-face {
+    font-family: MrBubble;
+    src: url("../fonts/MrBubbleFont.ttf");
+}
+
 body {
-    font-family: "Comic Sans MS";
+    font-family: "Arial";
     padding-top: 65px;
 }
-.navbar-brand, h2.title { font-family: "Impact"; }
+.navbar-brand, h2.title { font-family: "MrBubble"; }
 
 label { font-size: 15px; }
 #logo {

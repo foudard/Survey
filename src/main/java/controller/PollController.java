@@ -152,6 +152,7 @@ public class PollController {
         survey.setDescription(request.getParameter("description"));
         survey.setDateBegin(new java.util.Date(parseInt(strBegin[2]) - 1900, parseInt(strBegin[1]), parseInt(strBegin[0])));
         survey.setDateEnd(new java.util.Date(parseInt(strEnd[2]) - 1900, parseInt(strEnd[1]), parseInt(strEnd[0])));
+        survey.setClosed(false);
 
         JSONArray jsonarray = new JSONArray(request.getParameter("responses"));
         for (int i = 0; i < jsonarray.length(); i++) {
